@@ -58,9 +58,11 @@ const fetchWhether = async () => {
       labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
       datasets: [
         {
-          label: "# of Votes",
+          label: "Tempeture",
           data: arr,
           borderWidth: 1,
+          borderColor: "#00e600",
+          backgroundColor: "#00e600",
         },
       ],
     },
