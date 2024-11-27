@@ -19,11 +19,11 @@ const fetchWhether = async () => {
   };
 
   const res = await fetch(
-    `http://api.weatherapi.com/v1/forecast.json?key=4a100227f2ff4be182943627242711&q=${value}`,
+    `http://api.weatherapi.com/v1/forecast.json?key=4a100227f2ff4be182943627242711&q=${value}&days=5`,
     requestOptions
   );
   const data = await res.json();
-  /*  if (data.error.code == 1006) {
+  /* if (data.error.code == 1006) {
     Swal.fire({
       icon: "error",
       title: "Oops...",
@@ -47,12 +47,29 @@ const fetchWhether = async () => {
   humidity.innerHTML = `${data.current.humidity} <span class="opacity-50 fs-6">%</span>`;
   cloud.innerHTML = `${data.current.cloud}`;
   feels.innerHTML = `${data.current.feelslike_c} <span class="opacity-50 fs-6">°C</span>`;
-
-  console.log(data.location.name);
-  console.log(data.location.localtime);
-  console.log(data.location.country);
-  console.log(data.current.wind_kph);
-
-  console.log(Math.round(data.current.temp_c));
-  console.log(data.current.condition.text);
+  const ctx = document.getElementById("myChart");
+  let arr = [];
+  data.forecast.forecastday.forEach((day) => {
+    arr.push(day.day.maxtemp_c);
+  });
+  new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      datasets: [
+        {
+          label: "# of Votes",
+          data: arr,
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
 };

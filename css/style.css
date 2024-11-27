@@ -184,3 +184,16 @@ button {
 }
 
 /* ------------- */
+
+/* -----bottom section---- */
+
+.bottom-section {
+  height: 80vh;
+  margin-top: 2rem;
+  width: 96%;
+  border-radius: 1.5rem;
+  margin-inline: auto;
+  background: rgba(255, 255, 255, 0.05);
+  display: grid;
+  place-items: center;
+}

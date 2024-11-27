@@ -45,7 +45,7 @@
             <img src="img/cloudy.png" alt="" />
           </div>
           <div class="temp-area mt-4">
-            <h2 class="fw-semibold fs-1 mb-3" id="temp">28°C</h2>
+            <h2 class="fw-semibold fs-1 mb-3" id="temp"></h2>
             <div
               class="d-flex g-3 justify-content-start align-items-center w-100"
             >
@@ -59,11 +59,11 @@
           <div class="location text-light d-grid gap-2 my-2">
             <div>
               <i class="fa-solid fa-location-dot fs-6 opacity-50"></i>
-              <h7 class="fs-6 opacity ms-2" id="location">Panadura</h7>
+              <h7 class="fs-6 opacity ms-2" id="location"></h7>
             </div>
             <div>
               <i class="fa-solid fa-calendar-days fs-6 opacity-50"></i>
-              <h7 class="fs-6 opacity ms-2" id="date">2023-11-26</h7>
+              <h7 class="fs-6 opacity ms-2" id="date"></h7>
             </div>
           </div>
         </div>
@@ -147,7 +147,9 @@
       </div>
     </section>
 
-    <section class="bottom-section"></section>
+    <section class="bottom-section p-2">
+      <canvas id="myChart"></canvas>
+    </section>
 
     <canvas id="myChart"></canvas>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
