@@ -23,55 +23,59 @@ const fetchWhether = async () => {
     requestOptions
   );
   const data = await res.json();
-  /* if (data.error.code == 1006) {
-    Swal.fire({
-      icon: "error",
-      title: "Oops...",
-      text: "No matching location found.!",
-      footer: '<a href="#">Why do I have this issue?</a>',
-    });
-    return;
-  } */
-  date.innerText = data.location.localtime;
-  locatoin.innerText = data.location.name;
-  temp.innerText = Math.round(data.current.temp_c) + " °C";
-  detail.innerText = data.current.condition.text;
-  wind.innerHTML =
-    `<h3 class="fs-1 fw-semibold">${data.current.wind_kph}</h3>` +
-    `<span class="opacity-50 fs-6"> Km/h</span>`;
-  uv.innerHTML =
-    `<h3 class="fs-1 fw-semibold">${data.current.uv}</h3>` +
-    `<span class="opacity-50 fs-6">uv</span>`;
-  rise.innerHTML = `<h3 class="fs-1 fw-semibold">${data.forecast.forecastday[0].astro.sunrise}</h3>`;
+  try {
+    data.error.code == 1006;
+    if (data.error.code == 1006) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "No matching location found.!",
+        footer: '<a href="#">Why do I have this issue?</a>',
+      });
+      return;
+    }
+  } catch (TypeError) {
+    date.innerText = data.location.localtime;
+    locatoin.innerText = data.location.name;
+    temp.innerText = Math.round(data.current.temp_c) + " °C";
+    detail.innerText = data.current.condition.text;
+    wind.innerHTML =
+      `<h3 class="fs-1 fw-semibold">${data.current.wind_kph}</h3>` +
+      `<span class="opacity-50 fs-6"> Km/h</span>`;
+    uv.innerHTML =
+      `<h3 class="fs-1 fw-semibold">${data.current.uv}</h3>` +
+      `<span class="opacity-50 fs-6">uv</span>`;
+    rise.innerHTML = `<h3 class="fs-1 fw-semibold">${data.forecast.forecastday[0].astro.sunrise}</h3>`;
 
-  humidity.innerHTML = `${data.current.humidity} <span class="opacity-50 fs-6">%</span>`;
-  cloud.innerHTML = `${data.current.cloud}`;
-  feels.innerHTML = `${data.current.feelslike_c} <span class="opacity-50 fs-6">°C</span>`;
-  const ctx = document.getElementById("myChart");
-  let arr = [];
-  data.forecast.forecastday.forEach((day) => {
-    arr.push(day.day.maxtemp_c);
-  });
-  new Chart(ctx, {
-    type: "line",
-    data: {
-      labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      datasets: [
-        {
-          label: "Tempeture",
-          data: arr,
-          borderWidth: 1,
-          borderColor: "#00e600",
-          backgroundColor: "#00e600",
-        },
-      ],
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true,
+    humidity.innerHTML = `${data.current.humidity} <span class="opacity-50 fs-6">%</span>`;
+    cloud.innerHTML = `${data.current.cloud}`;
+    feels.innerHTML = `${data.current.feelslike_c} <span class="opacity-50 fs-6">°C</span>`;
+    const ctx = document.getElementById("myChart");
+    let arr = [];
+    data.forecast.forecastday.forEach((day) => {
+      arr.push(day.day.maxtemp_c);
+    });
+    new Chart(ctx, {
+      type: "line",
+      data: {
+        labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        datasets: [
+          {
+            label: "Tempeture",
+            data: arr,
+            borderWidth: 1,
+            borderColor: "#00e600",
+            backgroundColor: "#00e600",
+          },
+        ],
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
         },
       },
-    },
-  });
+    });
+  }
 };
