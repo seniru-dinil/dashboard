@@ -9,6 +9,8 @@ const uv = document.getElementById("uv");
 const cloud = document.getElementById("cloud");
 const rise = document.getElementById("rise");
 const feels = document.getElementById("feels");
+const alert_box = document.getElementById("alert-box");
+const alert_section = document.getElementById("alert-section");
 
 const fetchWhether = async () => {
   let value = input.value;
@@ -50,6 +52,7 @@ const fetchWhether = async () => {
     humidity.innerHTML = `${data.current.humidity} <span class="opacity-50 fs-6">%</span>`;
     cloud.innerHTML = `${data.current.cloud}`;
     feels.innerHTML = `${data.current.feelslike_c} <span class="opacity-50 fs-6">°C</span>`;
+
     const ctx = document.getElementById("myChart");
     let arr = [];
     data.forecast.forecastday.forEach((day) => {
@@ -78,4 +81,5 @@ const fetchWhether = async () => {
       },
     });
   }
+  alert_section.innerHTML = `<div class="alert-box" id="alert-box"><h4 class="alert-msg">avoid entering or going near rivers and streams due to potential dangers like strong currents, hidden hazards, slippery rocks, and unpredictable water levels,</h4></div>`;
 };

@@ -242,3 +242,16 @@ button {
   font-weight: bold;
   letter-spacing: 3px;
 }
+
+.alert-box {
+  margin-top: 4rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1em;
+  border-radius: 1.5rem;
+  margin-inline: 1rem;
+}
+
+.alert-box > h4 {
+  font-size: 1em;
+  opacity: 60%;
+}
