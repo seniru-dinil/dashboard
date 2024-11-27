@@ -25,7 +25,6 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <header class="header">this is header</header>
     <section class="upper-section gap-2">
       <div class="upper-left p-4">
         <div class="whether-card d-flex flex-column justify-content-center">
@@ -69,10 +68,89 @@
           </div>
         </div>
       </div>
-      <div class="upper-right p-4"></div>
+      <div class="upper-right p-4">
+        <div class="top">
+          <h3 class="fs-5 opacity-100 fw-semibold tit mb-3">
+            Today's Highlight
+          </h3>
+        </div>
+        <div class="bottom">
+          <div class="details-card">
+            <div class="upper-card">
+              <h4 class="fs-6 opacity-75 m-0">Wind Status</h4>
+              <div class="wind-img"><img src="img/smoke.png" alt="" /></div>
+              <div
+                id="wind"
+                class="wind text-light d-flex align-items-center gap-1 mt-4 w-100"
+              ></div>
+            </div>
+            <div class="bottom-card">
+              <div
+                class="hud d-flex justify-content-start align-items-center gap-3"
+              >
+                <h4 class="h4 opacity-75 fs-6 fw-semibold">Humidity</h4>
+                <div class="drop-bg ms-auto">
+                  <i class="fa-solid fa-droplet"></i>
+                </div>
+              </div>
+              <h4 class="h4 fs-4" id="humidity"></h4>
+            </div>
+          </div>
+          <!-- //////// -->
+          <div class="details-card">
+            <div class="upper-card">
+              <h4 class="fs-6 opacity-75 m-0">UV index</h4>
+              <div class="wind-img">
+                <img src="img/performance.png" alt="" />
+              </div>
+              <div
+                id="uv"
+                class="wind text-light d-flex align-items-center gap-1 mt-4"
+              ></div>
+            </div>
+            <div class="bottom-card">
+              <div
+                class="hud d-flex justify-content-start align-items-center gap-3"
+              >
+                <h4 class="h4 opacity-75 fs-6 fw-semibold">cloud</h4>
+                <div class="cloud-bg ms-auto">
+                  <i class="fa-solid fa-cloud"></i>
+                </div>
+              </div>
+              <h4 class="h4 fs-4" id="cloud"></h4>
+            </div>
+          </div>
+          <div class="details-card">
+            <div class="upper-card">
+              <h4 class="fs-6 opacity-75 m-0">Sunrise</h4>
+              <div class="wind-img">
+                <img src="img/rising-sun.png" alt="" />
+              </div>
+              <div
+                id="rise"
+                class="wind text-light d-flex align-items-center gap-1 mt-4"
+              ></div>
+            </div>
+            <div class="bottom-card">
+              <div
+                class="hud d-flex justify-content-start align-items-center gap-3"
+              >
+                <h4 class="h4 opacity-75 fs-6 fw-semibold">Feels like</h4>
+                <div class="feels-bg ms-auto">
+                  <i class="fa-solid fa-temperature-half"></i>
+                </div>
+              </div>
+              <h4 class="h4 fs-4" id="feels"></h4>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
+    <section class="bottom-section"></section>
+
     <canvas id="myChart"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="app.js"></script>
   </body>
