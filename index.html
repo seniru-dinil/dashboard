@@ -26,11 +26,9 @@
   </head>
   <body>
     <header class="header">this is header</header>
-    <section class="upper-section">
+    <section class="upper-section gap-2">
       <div class="upper-left p-4">
-        <div
-          class="whether-card d-flex flex-column justify-content-center align-items-center"
-        >
+        <div class="whether-card d-flex flex-column justify-content-center">
           <div class="search-bar d-flex align-items-center">
             <input
               type="text"
@@ -39,14 +37,39 @@
               placeholder="search city"
             />
             <div class="search-icon-bg">
-              <button>
+              <button onclick="fetchWhether()">
                 <i class="fa-solid fa-magnifying-glass text-light"></i>
               </button>
             </div>
           </div>
+          <div class="img">
+            <img src="img/cloudy.png" alt="" />
+          </div>
+          <div class="temp-area mt-4">
+            <h2 class="fw-semibold fs-1 mb-3" id="temp">28°C</h2>
+            <div
+              class="d-flex g-3 justify-content-start align-items-center w-100"
+            >
+              <div class="temp-icon-bg me-2">
+                <i class="fa-solid fa-cloud"></i>
+              </div>
+              <h7 class="opacity-50" id="detail"> Rainy Storm Clouds</h7>
+            </div>
+            <hr />
+          </div>
+          <div class="location text-light d-grid gap-2 my-2">
+            <div>
+              <i class="fa-solid fa-location-dot fs-6 opacity-50"></i>
+              <h7 class="fs-6 opacity ms-2" id="location">Panadura</h7>
+            </div>
+            <div>
+              <i class="fa-solid fa-calendar-days fs-6 opacity-50"></i>
+              <h7 class="fs-6 opacity ms-2" id="date">2023-11-26</h7>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="upper-right"></div>
+      <div class="upper-right p-4"></div>
     </section>
 
     <canvas id="myChart"></canvas>
