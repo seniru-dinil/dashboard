@@ -300,27 +300,27 @@ button {
 @keyframes blink {
   0% {
     background-color: hsl(0, 100%, 50%, 0.05);
-    scale: 0.7; /* Start with a white background */
+    scale: 0.7;
   }
   50% {
     background-color: hsl(0, 100%, 50%, 0.07);
-    scale: 0.8; /* Change to a black background at 50% of the animation */
+    scale: 0.8;
   }
   100% {
     background-color: hsl(0, 100%, 50%, 0.09);
-    scale: 1; /* Return to the white background at the end of the animation */
+    scale: 1;
   }
   90% {
     background-color: hsl(0, 100%, 50%, 0.08);
-    scale: 0.8; /* Start with a white background */
+    scale: 0.8;
   }
   50% {
     background-color: hsl(0, 100%, 50%, 0.07);
-    scale: 0.7; /* Change to a black background at 50% of the animation */
+    scale: 0.7;
   }
   0% {
     background-color: hsl(0, 100%, 50%, 0.05);
-    scale: 1; /* Return to the white background at the end of the animation */
+    scale: 1;
   }
 }
 
