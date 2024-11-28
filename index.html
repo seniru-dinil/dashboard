@@ -36,7 +36,9 @@
               placeholder="search city"
             />
             <div class="search-icon-bg">
-              <button onclick="fetchWhether()">
+              <button
+                onclick="fetchWhether(document.getElementById('input').value)"
+              >
                 <i class="fa-solid fa-magnifying-glass text-light"></i>
               </button>
             </div>
@@ -79,10 +81,7 @@
             <div class="upper-card">
               <h4 class="fs-6 opacity-75 m-0">Wind Status</h4>
               <div class="wind-img"><img src="img/smoke.png" alt="" /></div>
-              <div
-                id="wind"
-                class="wind text-light d-flex align-items-center gap-1 mt-4 w-100"
-              ></div>
+              <div id="wind" class="wind text-light mt-4 w-100"></div>
             </div>
             <div class="bottom-card">
               <div
@@ -105,7 +104,7 @@
               </div>
               <div
                 id="uv"
-                class="wind text-light d-flex align-items-center gap-1 mt-4"
+                class="wind text-light d-flex align-items-center gap-1 mt-5 mt-lg-4 mx-3"
               ></div>
             </div>
             <div class="bottom-card">
@@ -128,7 +127,7 @@
               </div>
               <div
                 id="rise"
-                class="wind text-light d-flex align-items-center gap-1 mt-4"
+                class="wind text-light d-flex align-items-center gap-1 mt-5 mt-lg-4 mx-3"
               ></div>
             </div>
             <div class="bottom-card">
@@ -148,10 +147,16 @@
     </section>
 
     <section class="bottom-section p-2">
-      <canvas id="myChart" class="myChart"></canvas>
+      <div class="chart w-100">
+        <canvas id="myChart" class="myChart"></canvas>
+      </div>
+      <div class="forecast-section">
+        <h4 class="text-light fs-4 mt-3 fw-semibold">5 Days Forecast</h4>
+        <div class="card-section" id="card-section"></div>
+      </div>
       <div class="alert-section">
         <div class="d-flex align-items-center mt-3 ms-3">
-          <div class="alert-bg">
+          <div class="alert-bg blinking-background">
             <i class="fa-solid fa-exclamation"></i>
           </div>
           <h3 class="alert-h ms-3 fs-2">Alert!</h3>
